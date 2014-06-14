@@ -10,11 +10,9 @@
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  */
 
-
-/**
- * Run in a custom namespace, so the class can be replaced
- */
 namespace Contao;
+
+use stdClass;
 
 
 /**
@@ -24,7 +22,7 @@ namespace Contao;
  * @author     Leo Feyer <https://contao.org>
  * @package    Comments
  */
-class ContentComments extends \ContentElement
+class ContentComments extends ContentElement
 {
 
 	/**
@@ -42,7 +40,7 @@ class ContentComments extends \ContentElement
 	{
 		if (TL_MODE == 'BE')
 		{
-			$objTemplate = new \BackendTemplate('be_wildcard');
+			$objTemplate = new BackendTemplate('be_wildcard');
 
 			$objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['FMD']['comments'][0]) . ' ###';
 			$objTemplate->title = $this->headline;
@@ -60,7 +58,7 @@ class ContentComments extends \ContentElement
 	protected function compile()
 	{
 		$this->import('Comments');
-		$objConfig = new \stdClass();
+		$objConfig = new stdClass();
 
 		$objConfig->perPage = $this->com_perPage;
 		$objConfig->order = $this->com_order;

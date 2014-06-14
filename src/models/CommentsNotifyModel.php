@@ -10,11 +10,9 @@
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  */
 
-
-/**
- * Run in a custom namespace, so the class can be replaced
- */
 namespace Contao;
+
+use Contao\Model\Collection;
 
 
 /**
@@ -24,7 +22,7 @@ namespace Contao;
  * @author    Leo Feyer <https://github.com/leofeyer>
  * @copyright Leo Feyer 2005-2014
  */
-class CommentsNotifyModel extends \Model
+class CommentsNotifyModel extends Model
 {
 
 	/**
@@ -40,7 +38,7 @@ class CommentsNotifyModel extends \Model
 	 * @param string $strToken   The token string
 	 * @param array  $arrOptions An optional options array
 	 *
-	 * @return \Model|null The subscription model or null
+	 * @return Model|null The subscription model or null
 	 */
 	public static function findByTokens($strToken, array $arrOptions=array())
 	{
@@ -57,7 +55,7 @@ class CommentsNotifyModel extends \Model
 	 * @param string  $strEmail   The e-mail address
 	 * @param array   $arrOptions An optional options array
 	 *
-	 * @return \Model|null The subscription model or null
+	 * @return Model|null The subscription model or null
 	 */
 	public static function findBySourceParentAndEmail($strSource, $intParent, $strEmail, array $arrOptions=array())
 	{
@@ -73,7 +71,7 @@ class CommentsNotifyModel extends \Model
 	 * @param integer $intParent  The parent ID
 	 * @param array   $arrOptions An optional options array
 	 *
-	 * @return \Model\Collection|null A collection of models or null if there are no active subscriptions
+	 * @return Collection|null A collection of models or null if there are no active subscriptions
 	 */
 	public static function findActiveBySourceAndParent($strSource, $intParent, array $arrOptions=array())
 	{
