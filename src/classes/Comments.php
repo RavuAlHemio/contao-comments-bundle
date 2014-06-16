@@ -41,8 +41,8 @@ class Comments extends Frontend
 		$offset = 0;
 		$total = 0;
 		$gtotal = 0;
-		$arrComments = array();
-		$objTemplate->comments = array(); // see #4064
+		$arrComments = [];
+		$objTemplate->comments = []; // see #4064
 
 		// Pagination
 		if ($objConfig->perPage > 0)
@@ -116,7 +116,7 @@ class Comments extends Frontend
 
 				// Clean the RTE output
 				$objPartial->comment = String::toHtml5($objComments->comment);
-				$objPartial->comment = trim(str_replace(array('{{', '}}'), array('&#123;&#123;', '&#125;&#125;'), $objPartial->comment));
+				$objPartial->comment = trim(str_replace(['{{', '}}'], ['&#123;&#123;', '&#125;&#125;'], $objPartial->comment));
 
 				$objPartial->datim = Date::parse($objPage->datimFormat, $objComments->date);
 				$objPartial->date = Date::parse($objPage->dateFormat, $objComments->date);
@@ -186,64 +186,64 @@ class Comments extends Frontend
 		}
 
 		// Form fields
-		$arrFields = array
-		(
-			'name' => array
-			(
+		$arrFields =
+		[
+			'name' =>
+			[
 				'name'      => 'name',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['com_name'],
 				'value'     => trim($this->User->firstname . ' ' . $this->User->lastname),
 				'inputType' => 'text',
-				'eval'      => array('mandatory'=>true, 'maxlength'=>64)
-			),
-			'email' => array
-			(
+				'eval'      => ['mandatory'=>true, 'maxlength'=>64]
+			],
+			'email' =>
+			[
 				'name'      => 'email',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['com_email'],
 				'value'     => $this->User->email,
 				'inputType' => 'text',
-				'eval'      => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true)
-			),
-			'website' => array
-			(
+				'eval'      => ['rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true]
+			],
+			'website' =>
+			[
 				'name'      => 'website',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['com_website'],
 				'inputType' => 'text',
-				'eval'      => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true)
-			)
-		);
+				'eval'      => ['rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true]
+			]
+		];
 
 		// Captcha
 		if (!$objConfig->disableCaptcha)
 		{
-			$arrFields['captcha'] = array
-			(
+			$arrFields['captcha'] =
+			[
 				'name'      => 'captcha',
 				'inputType' => 'captcha',
-				'eval'      => array('mandatory'=>true)
-			);
+				'eval'      => ['mandatory'=>true]
+			];
 		}
 
 		// Comment field
-		$arrFields['comment'] = array
-		(
+		$arrFields['comment'] =
+		[
 			'name'      => 'comment',
 			'label'     => $GLOBALS['TL_LANG']['MSC']['com_comment'],
 			'inputType' => 'textarea',
-			'eval'      => array('mandatory'=>true, 'rows'=>4, 'cols'=>40, 'preserveTags'=>true)
-		);
+			'eval'      => ['mandatory'=>true, 'rows'=>4, 'cols'=>40, 'preserveTags'=>true]
+		];
 
 		// Notify me of new comments
-		$arrFields['notify'] = array
-		(
+		$arrFields['notify'] =
+		[
 			'name'      => 'notify',
 			'label'     => '',
 			'inputType' => 'checkbox',
-			'options'   => array(1=>$GLOBALS['TL_LANG']['MSC']['com_notify'])
-		);
+			'options'   => [1=>$GLOBALS['TL_LANG']['MSC']['com_notify']]
+		];
 
 		$doNotSubmit = false;
-		$arrWidgets = array();
+		$arrWidgets = [];
 		$strFormId = 'com_'. $strSource .'_'. $intParent;
 
 		// Initialize the widgets
@@ -305,7 +305,7 @@ class Comments extends Frontend
 
 			// Do not parse any tags in the comment
 			$strComment = htmlspecialchars(trim($arrWidgets['comment']->value));
-			$strComment = str_replace(array('&amp;', '&lt;', '&gt;'), array('[&]', '[lt]', '[gt]'), $strComment);
+			$strComment = str_replace(['&amp;', '&lt;', '&gt;'], ['[&]', '[lt]', '[gt]'], $strComment);
 
 			// Remove multiple line feeds
 			$strComment = preg_replace('@\n\n+@', "\n\n", $strComment);
@@ -322,8 +322,8 @@ class Comments extends Frontend
 			$time = time();
 
 			// Prepare the record
-			$arrSet = array
-			(
+			$arrSet =
+			[
 				'tstamp'    => $time,
 				'source'    => $strSource,
 				'parent'    => $intParent,
@@ -334,7 +334,7 @@ class Comments extends Frontend
 				'ip'        => $this->anonymizeIp(Environment::get('ip')),
 				'date'      => $time,
 				'published' => ($objConfig->moderate ? '' : 1)
-			);
+			];
 
 			// Store the comment
 			$objComment = new CommentsModel();
@@ -365,7 +365,7 @@ class Comments extends Frontend
 			// Convert the comment to plain text
 			$strComment = strip_tags($strComment);
 			$strComment = String::decodeEntities($strComment);
-			$strComment = str_replace(array('[&]', '[lt]', '[gt]'), array('&', '<', '>'), $strComment);
+			$strComment = str_replace(['[&]', '[lt]', '[gt]'], ['&', '<', '>'], $strComment);
 
 			// Add the comment details
 			$objEmail->text = sprintf($GLOBALS['TL_LANG']['MSC']['com_message'],
@@ -420,8 +420,8 @@ class Comments extends Frontend
 	 */
 	public function parseBbCode($strComment)
 	{
-		$arrSearch = array
-		(
+		$arrSearch =
+		[
 			'@\[b\](.*)\[/b\]@Uis',
 			'@\[i\](.*)\[/i\]@Uis',
 			'@\[u\](.*)\[/u\]@Uis',
@@ -435,10 +435,10 @@ class Comments extends Frontend
 			'@\[email\]\s*([^\[" ]+)\s*\[/email\]@i',
 			'@\[email=([^\]" ]+)\](.*)\[/email\]@Uis',
 			'@href="(([a-z0-9]+\.)*[a-z0-9]+\.([a-z]{2}|asia|biz|com|info|name|net|org|tel)(/|"))@i'
-		);
+		];
 
-		$arrReplace = array
-		(
+		$arrReplace =
+		[
 			'<strong>$1</strong>',
 			'<em>$1</em>',
 			'<span style="text-decoration:underline">$1</span>',
@@ -452,7 +452,7 @@ class Comments extends Frontend
 			'<a href="mailto:$1">$1</a>',
 			'<a href="mailto:$1">$2</a>',
 			'href="http://$1'
-		);
+		];
 
 		$strComment = preg_replace($arrSearch, $arrReplace, $strComment);
 
@@ -481,13 +481,13 @@ class Comments extends Frontend
 			$strComment = '<p>'. $strComment .'</p>';
 		}
 
-		$arrReplace = array
-		(
+		$arrReplace =
+		[
 			'@<br>\s?<br>\s?@' => "</p>\n<p>", // Convert two linebreaks into a new paragraph
 			'@\s?<br></p>@'    => '</p>',      // Remove BR tags before closing P tags
 			'@<p><div@'        => '<div',      // Do not nest DIVs inside paragraphs
 			'@</div></p>@'     => '</div>'     // Do not nest DIVs inside paragraphs
-		);
+		];
 
 		return preg_replace(array_keys($arrReplace), array_values($arrReplace), $strComment);
 	}
@@ -510,8 +510,8 @@ class Comments extends Frontend
 		$time = time();
 
 		// Prepare the record
-		$arrSet = array
-		(
+		$arrSet =
+		[
 			'tstamp'       => $time,
 			'source'       => $objComment->source,
 			'parent'       => $objComment->parent,
@@ -522,7 +522,7 @@ class Comments extends Frontend
 			'ip'           => System::anonymizeIp(Environment::get('ip')),
 			'tokenConfirm' => md5(uniqid(mt_rand(), true)),
 			'tokenRemove'  => md5(uniqid(mt_rand(), true))
-		);
+		];
 
 		// Store the subscription
 		$objNotify = new CommentsNotifyModel();

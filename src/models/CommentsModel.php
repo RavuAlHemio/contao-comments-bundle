@@ -44,10 +44,10 @@ class CommentsModel extends Model
 	 *
 	 * @return Collection|null A collection of models or null if there are no comments
 	 */
-	public static function findPublishedBySourceAndParent($strSource, $intParent, $blnDesc=false, $intLimit=0, $intOffset=0, array $arrOptions=array())
+	public static function findPublishedBySourceAndParent($strSource, $intParent, $blnDesc=false, $intLimit=0, $intOffset=0, array $arrOptions=[])
 	{
 		$t = static::$strTable;
-		$arrColumns = array("$t.source=? AND $t.parent=?");
+		$arrColumns = ["$t.source=? AND $t.parent=?"];
 
 		if (!BE_USER_LOGGED_IN)
 		{
@@ -62,7 +62,7 @@ class CommentsModel extends Model
 			$arrOptions['order']  = ($blnDesc ? "$t.date DESC" : "$t.date");
 		}
 
-		return static::findBy($arrColumns, array($strSource, $intParent), $arrOptions);
+		return static::findBy($arrColumns, [$strSource, $intParent], $arrOptions);
 	}
 
 
@@ -77,13 +77,13 @@ class CommentsModel extends Model
 	public static function countPublishedBySourceAndParent($strSource, $intParent)
 	{
 		$t = static::$strTable;
-		$arrColumns = array("$t.source=? AND $t.parent=?");
+		$arrColumns = ["$t.source=? AND $t.parent=?"];
 
 		if (!BE_USER_LOGGED_IN)
 		{
 			$arrColumns[] = "$t.published=1";
 		}
 
-		return static::countBy($arrColumns, array($strSource, $intParent));
+		return static::countBy($arrColumns, [$strSource, $intParent]);
 	}
 }

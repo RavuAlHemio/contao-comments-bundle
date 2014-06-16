@@ -40,10 +40,10 @@ class CommentsNotifyModel extends Model
 	 *
 	 * @return Model|null The subscription model or null
 	 */
-	public static function findByTokens($strToken, array $arrOptions=array())
+	public static function findByTokens($strToken, array $arrOptions=[])
 	{
 		$t = static::$strTable;
-		return static::findOneBy(array("($t.tokenConfirm=? OR $t.tokenRemove=?)"), array($strToken, $strToken), $arrOptions);
+		return static::findOneBy(["($t.tokenConfirm=? OR $t.tokenRemove=?)"], [$strToken, $strToken], $arrOptions);
 	}
 
 
@@ -57,10 +57,10 @@ class CommentsNotifyModel extends Model
 	 *
 	 * @return Model|null The subscription model or null
 	 */
-	public static function findBySourceParentAndEmail($strSource, $intParent, $strEmail, array $arrOptions=array())
+	public static function findBySourceParentAndEmail($strSource, $intParent, $strEmail, array $arrOptions=[])
 	{
 		$t = static::$strTable;
-		return static::findOneBy(array("$t.source=? AND $t.parent=? AND $t.email=?"), array($strSource, $intParent, $strEmail), $arrOptions);
+		return static::findOneBy(["$t.source=? AND $t.parent=? AND $t.email=?"], [$strSource, $intParent, $strEmail], $arrOptions);
 	}
 
 
@@ -73,9 +73,9 @@ class CommentsNotifyModel extends Model
 	 *
 	 * @return Collection|null A collection of models or null if there are no active subscriptions
 	 */
-	public static function findActiveBySourceAndParent($strSource, $intParent, array $arrOptions=array())
+	public static function findActiveBySourceAndParent($strSource, $intParent, array $arrOptions=[])
 	{
 		$t = static::$strTable;
-		return static::findBy(array("$t.source=? AND $t.parent=? AND tokenConfirm=''"), array($strSource, $intParent), $arrOptions);
+		return static::findBy(["$t.source=? AND $t.parent=? AND tokenConfirm=''"], [$strSource, $intParent], $arrOptions);
 	}
 }

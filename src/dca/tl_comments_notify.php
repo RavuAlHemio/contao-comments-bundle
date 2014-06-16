@@ -14,74 +14,74 @@
 /**
  * Table tl_comments_notify
  */
-$GLOBALS['TL_DCA']['tl_comments_notify'] = array
-(
+$GLOBALS['TL_DCA']['tl_comments_notify'] =
+[
 
 	// Config
-	'config' => array
-	(
+	'config' =>
+	[
 		'dataContainer'               => 'Table',
 		'closed'                      => true,
 		'notEditable'                 => true,
-		'sql' => array
-		(
-			'keys' => array
-			(
+		'sql' =>
+		[
+			'keys' =>
+			[
 				'id' => 'primary',
 				'source' => 'index',
 				'parent' => 'index',
 				'tokenConfirm' => 'index',
 				'tokenRemove' => 'index'
-			)
-		)
-	),
+			]
+		]
+	],
 
 	// Fields
-	'fields' => array
-	(
-		'id' => array
-		(
+	'fields' =>
+	[
+		'id' =>
+		[
 			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
-		),
-		'tstamp' => array
-		(
+		],
+		'tstamp' =>
+		[
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
-		),
-		'source' => array
-		(
+		],
+		'source' =>
+		[
 			'sql'                     => "varchar(32) NOT NULL default ''"
-		),
-		'parent' => array
-		(
+		],
+		'parent' =>
+		[
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
-		),
-		'name' => array
-		(
+		],
+		'name' =>
+		[
 			'sql'                     => "varchar(128) NOT NULL default ''"
-		),
-		'email' => array
-		(
+		],
+		'email' =>
+		[
 			'sql'                     => "varchar(128) NOT NULL default ''"
-		),
-		'url' => array
-		(
+		],
+		'url' =>
+		[
 			'sql'                     => "varchar(255) NOT NULL default ''"
-		),
-		'addedOn' => array
-		(
+		],
+		'addedOn' =>
+		[
 			'sql'                     => "varchar(10) NOT NULL default ''"
-		),
-		'ip' => array
-		(
+		],
+		'ip' =>
+		[
 			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
-		'tokenConfirm' => array
-		(
+		],
+		'tokenConfirm' =>
+		[
 			'sql'                     => "varchar(32) NOT NULL default ''"
-		),
-		'tokenRemove' => array
-		(
+		],
+		'tokenRemove' =>
+		[
 			'sql'                     => "varchar(32) NOT NULL default ''"
-		)
-	)
-);
+		]
+	]
+];

@@ -14,226 +14,226 @@
 /**
  * Table tl_comments
  */
-$GLOBALS['TL_DCA']['tl_comments'] = array
-(
+$GLOBALS['TL_DCA']['tl_comments'] =
+[
 
 	// Config
-	'config' => array
-	(
+	'config' =>
+	[
 		'dataContainer'               => 'Table',
 		'enableVersioning'            => true,
 		'closed'                      => true,
-		'onload_callback' => array
-		(
-			array('tl_comments', 'checkPermission')
-		),
-		'sql' => array
-		(
-			'keys' => array
-			(
+		'onload_callback' =>
+		[
+			['tl_comments', 'checkPermission']
+		],
+		'sql' =>
+		[
+			'keys' =>
+			[
 				'id' => 'primary',
 				'source' => 'index',
 				'parent' => 'index'
-			)
-		)
-	),
+			]
+		]
+	],
 
 	// List
-	'list' => array
-	(
-		'sorting' => array
-		(
+	'list' =>
+	[
+		'sorting' =>
+		[
 			'mode'                    => 2,
-			'fields'                  => array('date DESC'),
+			'fields'                  => ['date DESC'],
 			'flag'                    => 8,
 			'panelLayout'             => 'filter;sort,search,limit'
-		),
-		'label' => array
-		(
-			'fields'                  => array('name'),
+		],
+		'label' =>
+		[
+			'fields'                  => ['name'],
 			'format'                  => '%s',
-			'label_callback'          => array('tl_comments', 'listComments')
-		),
-		'global_operations' => array
-		(
-			'all' => array
-			(
+			'label_callback'          => ['tl_comments', 'listComments']
+		],
+		'global_operations' =>
+		[
+			'all' =>
+			[
 				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
 				'href'                => 'act=select',
 				'class'               => 'header_edit_all',
 				'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-			)
-		),
-		'operations' => array
-		(
-			'edit' => array
-			(
+			]
+		],
+		'operations' =>
+		[
+			'edit' =>
+			[
 				'label'               => &$GLOBALS['TL_LANG']['tl_comments']['edit'],
 				'href'                => 'act=edit',
 				'icon'                => 'edit.gif',
-				'button_callback'     => array('tl_comments', 'editComment')
-			),
-			'delete' => array
-			(
+				'button_callback'     => ['tl_comments', 'editComment']
+			],
+			'delete' =>
+			[
 				'label'               => &$GLOBALS['TL_LANG']['tl_comments']['delete'],
 				'href'                => 'act=delete',
 				'icon'                => 'delete.gif',
 				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
-				'button_callback'     => array('tl_comments', 'deleteComment')
-			),
-			'toggle' => array
-			(
+				'button_callback'     => ['tl_comments', 'deleteComment']
+			],
+			'toggle' =>
+			[
 				'label'               => &$GLOBALS['TL_LANG']['tl_comments']['toggle'],
 				'icon'                => 'visible.gif',
 				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-				'button_callback'     => array('tl_comments', 'toggleIcon')
-			),
-			'show' => array
-			(
+				'button_callback'     => ['tl_comments', 'toggleIcon']
+			],
+			'show' =>
+			[
 				'label'               => &$GLOBALS['TL_LANG']['tl_comments']['show'],
 				'href'                => 'act=show',
 				'icon'                => 'show.gif'
-			)
-		)
-	),
+			]
+		]
+	],
 
 	// Palettes
-	'palettes' => array
-	(
-		'__selector__'                => array('addReply'),
+	'palettes' =>
+	[
+		'__selector__'                => ['addReply'],
 		'default'                     => '{author_legend},name,email,website;{comment_legend},comment;{reply_legend},addReply;{publish_legend},published'
-	),
+	],
 
 	// Subpalettes
-	'subpalettes' => array
-	(
+	'subpalettes' =>
+	[
 		'addReply'                    => 'author,reply'
-	),
+	],
 
 	// Fields
-	'fields' => array
-	(
-		'id' => array
-		(
+	'fields' =>
+	[
+		'id' =>
+		[
 			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
-		),
-		'tstamp' => array
-		(
+		],
+		'tstamp' =>
+		[
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
-		),
-		'source' => array
-		(
+		],
+		'source' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['source'],
 			'filter'                  => true,
 			'sorting'                 => true,
 			'reference'               => &$GLOBALS['TL_LANG']['tl_comments'],
 			'sql'                     => "varchar(32) NOT NULL default ''"
-		),
-		'parent' => array
-		(
+		],
+		'parent' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['parent'],
 			'filter'                  => true,
 			'sorting'                 => true,
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
-		),
-		'date' => array
-		(
+		],
+		'date' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['date'],
 			'sorting'                 => true,
 			'filter'                  => true,
 			'flag'                    => 8,
 			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
-		'name' => array
-		(
+		],
+		'name' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['name'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true, 'maxlength'=>64),
+			'eval'                    => ['mandatory'=>true, 'maxlength'=>64],
 			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
-		'email' => array
-		(
+		],
+		'email' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['email'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'rgxp'=>'email', 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'eval'                    => ['mandatory'=>true, 'maxlength'=>255, 'rgxp'=>'email', 'decodeEntities'=>true, 'tl_class'=>'w50'],
 			'sql'                     => "varchar(255) NOT NULL default ''"
-		),
-		'website' => array
-		(
+		],
+		'website' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['website'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>128, 'rgxp'=>'url', 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'eval'                    => ['maxlength'=>128, 'rgxp'=>'url', 'decodeEntities'=>true, 'tl_class'=>'w50'],
 			'sql'                     => "varchar(128) NOT NULL default ''"
-		),
-		'comment' => array
-		(
+		],
+		'comment' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['comment'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'textarea',
-			'eval'                    => array('mandatory'=>true, 'rte'=>'tinyMCE'),
+			'eval'                    => ['mandatory'=>true, 'rte'=>'tinyMCE'],
 			'sql'                     => "text NULL"
-		),
-		'addReply' => array
-		(
+		],
+		'addReply' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['addReply'],
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('submitOnChange'=>true),
+			'eval'                    => ['submitOnChange'=>true],
 			'sql'                     => "char(1) NOT NULL default ''"
-		),
-		'author' => array
-		(
+		],
+		'author' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['author'],
 			'default'                 => BackendUser::getInstance()->id,
 			'exclude'                 => true,
 			'inputType'               => 'select',
 			'foreignKey'              => 'tl_user.name',
-			'eval'                    => array('mandatory'=>true, 'chosen'=>true, 'doNotCopy'=>true, 'includeBlankOption'=>true),
+			'eval'                    => ['mandatory'=>true, 'chosen'=>true, 'doNotCopy'=>true, 'includeBlankOption'=>true],
 			'sql'                     => "int(10) unsigned NOT NULL default '0'",
-			'relation'                => array('type'=>'belongsTo', 'load'=>'eager')
-		),
-		'reply' => array
-		(
+			'relation'                => ['type'=>'belongsTo', 'load'=>'eager']
+		],
+		'reply' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['reply'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'textarea',
-			'eval'                    => array('rte'=>'tinyMCE'),
+			'eval'                    => ['rte'=>'tinyMCE'],
 			'sql'                     => "text NULL"
-		),
-		'published' => array
-		(
+		],
+		'published' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['published'],
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('doNotCopy'=>true),
-			'save_callback' => array
-			(
-				array('tl_comments', 'sendNotifications')
-			),
+			'eval'                    => ['doNotCopy'=>true],
+			'save_callback' =>
+			[
+				['tl_comments', 'sendNotifications']
+			],
 			'sql'                     => "char(1) NOT NULL default ''"
-		),
-		'ip' => array
-		(
+		],
+		'ip' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['ip'],
 			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
-		'notified' => array
-		(
+		],
+		'notified' =>
+		[
 			'label'                   => &$GLOBALS['TL_LANG']['tl_comments']['notified'],
 			'sql'                     => "char(1) NOT NULL default ''"
-		)
-	)
-);
+		]
+	]
+];
 
 
 /**

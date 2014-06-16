@@ -26,12 +26,12 @@ $GLOBALS['FE_MOD']['application']['comments'] = 'ModuleComments';
 /**
  * Back end modules
  */
-array_insert($GLOBALS['BE_MOD']['content'], 5, array
-(
-	'comments' => array
-	(
-		'tables'     => array('tl_comments'),
+array_insert($GLOBALS['BE_MOD']['content'], 5,
+[
+	'comments' =>
+	[
+		'tables'     => ['tl_comments'],
 		'icon'       => 'system/modules/comments/assets/icon.gif',
 		'stylesheet' => 'system/modules/comments/assets/style.css'
-	)
-));
+	]
+]);

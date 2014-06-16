@@ -26,64 +26,64 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['comments'] = '{title_legend},name,h
 /**
  * Add fields to tl_module
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['com_order'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['com_order'] =
+[
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['com_order'],
 	'default'                 => 'ascending',
 	'exclude'                 => true,
 	'inputType'               => 'select',
-	'options'                 => array('ascending', 'descending'),
+	'options'                 => ['ascending', 'descending'],
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('tl_class'=>'w50'),
+	'eval'                    => ['tl_class'=>'w50'],
 	'sql'                     => "varchar(32) NOT NULL default ''"
-);
+];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['com_moderate'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['com_moderate'] =
+[
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['com_moderate'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'w50'),
+	'eval'                    => ['tl_class'=>'w50'],
 	'sql'                     => "char(1) NOT NULL default ''"
-);
+];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['com_bbcode'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['com_bbcode'] =
+[
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['com_bbcode'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'w50'),
+	'eval'                    => ['tl_class'=>'w50'],
 	'sql'                     => "char(1) NOT NULL default ''"
-);
+];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['com_requireLogin'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['com_requireLogin'] =
+[
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['com_requireLogin'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'w50'),
+	'eval'                    => ['tl_class'=>'w50'],
 	'sql'                     => "char(1) NOT NULL default ''"
-);
+];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['com_disableCaptcha'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['com_disableCaptcha'] =
+[
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['com_disableCaptcha'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'w50'),
+	'eval'                    => ['tl_class'=>'w50'],
 	'sql'                     => "char(1) NOT NULL default ''"
-);
+];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['com_template'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['com_template'] =
+[
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['com_template'],
 	'default'                 => 'com_default',
 	'exclude'                 => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('tl_module_comments', 'getCommentTemplates'),
-	'eval'                    => array('tl_class'=>'w50'),
+	'options_callback'        => ['tl_module_comments', 'getCommentTemplates'],
+	'eval'                    => ['tl_class'=>'w50'],
 	'sql'                     => "varchar(32) NOT NULL default ''"
-);
+];
 
 
 /**
