@@ -304,7 +304,7 @@ class Comments extends Frontend
 			}
 
 			// Do not parse any tags in the comment
-			$strComment = htmlspecialchars(trim($arrWidgets['comment']->value));
+			$strComment = specialchars(trim($arrWidgets['comment']->value));
 			$strComment = str_replace(['&amp;', '&lt;', '&gt;'], ['[&]', '[lt]', '[gt]'], $strComment);
 
 			// Remove multiple line feeds
