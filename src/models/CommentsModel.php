@@ -35,12 +35,12 @@ class CommentsModel extends Model
 	/**
 	 * Find published comments by their source table and parent ID
 	 *
-	 * @param string  $strSource  The source element
-	 * @param integer $intParent  The parent ID
-	 * @param boolean $blnDesc    If true, comments will be sorted descending
-	 * @param integer $intLimit   An optional limit
-	 * @param integer $intOffset  An optional offset
-	 * @param array   $arrOptions An optional options array
+	 * @param string $strSource  The source element
+	 * @param int    $intParent  The parent ID
+	 * @param bool   $blnDesc    If true, comments will be sorted descending
+	 * @param int    $intLimit   An optional limit
+	 * @param int    $intOffset  An optional offset
+	 * @param array  $arrOptions An optional options array
 	 *
 	 * @return Collection|null A collection of models or null if there are no comments
 	 */
@@ -69,10 +69,10 @@ class CommentsModel extends Model
 	/**
 	 * Count published comments by their source table and parent ID
 	 *
-	 * @param string  $strSource The source element
-	 * @param integer $intParent The parent ID
+	 * @param string $strSource The source element
+	 * @param int    $intParent The parent ID
 	 *
-	 * @return integer The number of comments
+	 * @return int The number of comments
 	 */
 	public static function countPublishedBySourceAndParent($strSource, $intParent)
 	{

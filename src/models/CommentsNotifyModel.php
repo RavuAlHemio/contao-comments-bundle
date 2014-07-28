@@ -50,10 +50,10 @@ class CommentsNotifyModel extends Model
 	/**
 	 * Find a subscription by its tokens
 	 *
-	 * @param string  $strSource  The source element
-	 * @param integer $intParent  The parent ID
-	 * @param string  $strEmail   The e-mail address
-	 * @param array   $arrOptions An optional options array
+	 * @param string $strSource  The source element
+	 * @param int    $intParent  The parent ID
+	 * @param string $strEmail   The e-mail address
+	 * @param array  $arrOptions An optional options array
 	 *
 	 * @return Model|null The subscription model or null
 	 */
@@ -67,9 +67,9 @@ class CommentsNotifyModel extends Model
 	/**
 	 * Find published comments by their source table and parent ID
 	 *
-	 * @param string  $strSource  The source element
-	 * @param integer $intParent  The parent ID
-	 * @param array   $arrOptions An optional options array
+	 * @param string $strSource  The source element
+	 * @param int    $intParent  The parent ID
+	 * @param array  $arrOptions An optional options array
 	 *
 	 * @return Collection|null A collection of models or null if there are no active subscriptions
 	 */

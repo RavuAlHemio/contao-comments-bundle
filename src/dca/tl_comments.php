@@ -326,9 +326,9 @@ class tl_comments extends Backend
 
 	/**
 	 * Check whether the user is allowed to edit a comment
-	 * @param integer
+	 * @param int
 	 * @param string
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isAllowedToEditComment($intParent, $strSource)
 	{
@@ -606,8 +606,8 @@ class tl_comments extends Backend
 
 	/**
 	 * Disable/enable a user group
-	 * @param integer
-	 * @param boolean
+	 * @param int
+	 * @param bool
 	 */
 	public function toggleVisibility($intId, $blnVisible)
 	{

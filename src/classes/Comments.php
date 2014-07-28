@@ -30,7 +30,7 @@ class Comments extends Frontend
 	 * @param FrontendTemplate
 	 * @param stdClass
 	 * @param string
-	 * @param integer
+	 * @param int
 	 * @param mixed
 	 */
 	public function addCommentsToTemplate(FrontendTemplate $objTemplate, stdClass $objConfig, $strSource, $intParent, $varNotifies)
@@ -164,7 +164,7 @@ class Comments extends Frontend
 	 * @param FrontendTemplate
 	 * @param stdClass
 	 * @param string
-	 * @param integer
+	 * @param int
 	 * @param mixed
 	 */
 	protected function renderCommentForm(FrontendTemplate $objTemplate, stdClass $objConfig, $strSource, $intParent, $varNotifies)
