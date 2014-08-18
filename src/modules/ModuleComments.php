@@ -12,8 +12,6 @@
 
 namespace Contao;
 
-use stdClass;
-
 
 /**
  * Class ModuleComments
@@ -63,7 +61,7 @@ class ModuleComments extends Module
 		global $objPage;
 
 		$this->import('Comments');
-		$objConfig = new stdClass();
+		$objConfig = new \stdClass();
 
 		$objConfig->perPage = $this->perPage;
 		$objConfig->order = $this->com_order;

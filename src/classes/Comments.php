@@ -12,8 +12,6 @@
 
 namespace Contao;
 
-use stdClass;
-
 
 /**
  * Class Comments
@@ -28,12 +26,12 @@ class Comments extends Frontend
 	/**
 	 * Add comments to a template
 	 * @param FrontendTemplate
-	 * @param stdClass
+	 * @param \stdClass
 	 * @param string
 	 * @param int
 	 * @param mixed
 	 */
-	public function addCommentsToTemplate(FrontendTemplate $objTemplate, stdClass $objConfig, $strSource, $intParent, $varNotifies)
+	public function addCommentsToTemplate(FrontendTemplate $objTemplate, \stdClass $objConfig, $strSource, $intParent, $varNotifies)
 	{
 		global $objPage;
 
@@ -162,12 +160,12 @@ class Comments extends Frontend
 	/**
 	 * Add a form to create new comments
 	 * @param FrontendTemplate
-	 * @param stdClass
+	 * @param \stdClass
 	 * @param string
 	 * @param int
 	 * @param mixed
 	 */
-	protected function renderCommentForm(FrontendTemplate $objTemplate, stdClass $objConfig, $strSource, $intParent, $varNotifies)
+	protected function renderCommentForm(FrontendTemplate $objTemplate, \stdClass $objConfig, $strSource, $intParent, $varNotifies)
 	{
 		$this->import('FrontendUser', 'User');
 

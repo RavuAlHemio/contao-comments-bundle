@@ -12,8 +12,6 @@
 
 namespace Contao;
 
-use stdClass;
-
 
 /**
  * Class ContentComments
@@ -58,7 +56,7 @@ class ContentComments extends ContentElement
 	protected function compile()
 	{
 		$this->import('Comments');
-		$objConfig = new stdClass();
+		$objConfig = new \stdClass();
 
 		$objConfig->perPage = $this->com_perPage;
 		$objConfig->order = $this->com_order;
