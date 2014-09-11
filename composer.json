@@ -11,8 +11,8 @@
 	],
 	"require": {
 		"php": ">=5.4.0",
-		"contao/contao-library": "dev-develop",
-		"contao/module-core": "dev-develop",
+		"contao/contao-library": "dev-feature/symfony",
+		"contao/module-core": "dev-feature/symfony",
 		"contao-community-alliance/composer-plugin": "~2.0"
 	},
 	"autoload": {
