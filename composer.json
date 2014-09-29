@@ -1,6 +1,6 @@
 {
 	"name": "contao/module-comments",
-	"type": "contao-module",
+	"type": "library",
 	"description": "Contao 4 comments module",
 	"license": "LGPL-3.0+",
 	"authors": [
