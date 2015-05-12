@@ -401,6 +401,8 @@ class tl_comments extends Backend
 				break;
 
 			default:
+				// FIXME: trigger an event
+
 				// HOOK: support custom modules
 				if (isset($GLOBALS['TL_HOOKS']['isAllowedToEditComment']) && is_array($GLOBALS['TL_HOOKS']['isAllowedToEditComment']))
 				{
@@ -504,6 +506,8 @@ class tl_comments extends Backend
 				break;
 
 			default:
+				// FIXME: trigger an event
+
 				// HOOK: support custom modules
 				if (isset($GLOBALS['TL_HOOKS']['listComments']) && is_array($GLOBALS['TL_HOOKS']['listComments']))
 				{

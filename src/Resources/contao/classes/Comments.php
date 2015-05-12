@@ -348,6 +348,8 @@ class Comments extends \Frontend
 				static::addCommentsSubscription($objComment);
 			}
 
+			// FIXME: trigger an event
+
 			// HOOK: add custom logic
 			if (isset($GLOBALS['TL_HOOKS']['addComment']) && is_array($GLOBALS['TL_HOOKS']['addComment']))
 			{
